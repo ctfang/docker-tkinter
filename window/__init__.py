@@ -21,7 +21,7 @@ class Tk(tk.Tk):
     def handel(self):
         notebook = Notebook(self)
         running_tab = running(notebook)
-        images_tab = images(notebook, background='red')
+        images_tab = images(notebook)
         container_tab = container(notebook, background='red')
 
         notebook.add(running_tab, text=running.title)

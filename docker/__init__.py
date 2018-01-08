@@ -37,6 +37,14 @@ class images(object):
 
         return newList
 
+    def del_image(self,images_id):
+        os.popen("docker rmi "+images_id)
+
+    def image_info(self, id):
+        str = "docker inspect "+id
+        str = os.popen(str).read()
+        dict = json.loads(str)
+        return dict[0]
 
 class container():
     @staticmethod
