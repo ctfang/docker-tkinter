@@ -9,11 +9,8 @@ class images(tk.Frame):
     title = "镜像管理"
     left_width = 150
 
-    CheckbuttonValue = {}
-
     def __init__(self, master=None, cnf={}, **kw):
         super().__init__(master,cnf, **kw)
-
         left_label = tk.Frame(self, width=self.left_width)
         left_label.pack(fill=tk.Y, side=tk.LEFT)
 
@@ -49,8 +46,10 @@ class images(tk.Frame):
     def create_container(self):
         CheckbuttonValue = self.tableVies.get_check()
         for key in CheckbuttonValue:
-            if  CheckbuttonValue[key].get()=="1":
-                return create(key)
+            if CheckbuttonValue[key].get()=="1":
+                create(key)
+                return
+
         tkinter.messagebox.showinfo(title='提示',message='没有选择镜像')
 
     # 下载镜像

@@ -46,6 +46,13 @@ class images(object):
         dict = json.loads(str)
         return dict[0]
 
+    def docker_run(self, param, image, cmd=''):
+        str = "docker run -d "+param+" "+image+" "+cmd
+        print(str)
+        result = os.popen(str).read()
+        print(str,result)
+        return dict
+
 class container():
     @staticmethod
     def all():
@@ -153,4 +160,17 @@ class container():
         str = "docker inspect "+CONTAINER_ID
         str = os.popen(str).read()
         dict = json.loads(str)
-        return dict[0]['NetworkSettings']['Networks']['self_default']['IPAddress']
+        for data in dict[0]['NetworkSettings']['Networks'].values():
+            return data['IPAddress']
+
+    def stop(name):
+        str = "docker stop "+name
+        os.popen(str).read()
+
+    def start(name):
+        str = "docker start " + name
+        os.popen(str).read()
+
+    def delete(name):
+        str = "docker rm " + name
+        os.popen(str).read()

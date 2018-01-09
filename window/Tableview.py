@@ -3,11 +3,10 @@ from tkinter import ttk
 
 
 class Tableview:
-    CheckbuttonValue = {}
-    title_config = {}
-    row = 0
-
     def __init__(self, master=None, **kw):
+        self.CheckbuttonValue = {}
+        self.title_config = {}
+        self.row = 0
         self.master = master
         self.titleLabel = ttk.Frame(self.master, padding='0 0 0 0')
         self.titleLabel.pack(side=tkinter.TOP, expand=0, fill=tkinter.X)

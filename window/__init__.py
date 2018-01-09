@@ -22,9 +22,8 @@ class Tk(tk.Tk):
         notebook = Notebook(self)
         running_tab = running(notebook)
         images_tab = images(notebook)
-        container_tab = container(notebook, background='red')
 
         notebook.add(running_tab, text=running.title)
         notebook.add(images_tab, text=images.title)
-        notebook.add(container_tab, text=container.title)
+
         notebook.pack(fill=tk.BOTH, expand=1)
