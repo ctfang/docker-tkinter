@@ -54,9 +54,7 @@ class images(tk.Frame):
 
     # 下载镜像
     def down_docker(self):
-        CheckbuttonValue = self.tableVies.get_check()
-        for key in CheckbuttonValue:
-            print(key, CheckbuttonValue[key].get())
+        tkinter.messagebox.showinfo(title='提示', message='还没有开发')
 
     # 删除镜像
     def del_image(self):
