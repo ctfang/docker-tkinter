@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter.ttk import Notebook
 from window.running import running
 from window.images import images
-from window.container import container
+from window.version import version
 
 
 class Tk(tk.Tk):
@@ -11,6 +11,7 @@ class Tk(tk.Tk):
 
     def __init__(self):
         super(Tk, self).__init__()
+        self.title("docker简易管理")
         ws = self.winfo_screenwidth()
         hs = self.winfo_screenheight()
         self.x = (ws / 2) - (self.w / 2)
@@ -22,8 +23,9 @@ class Tk(tk.Tk):
         notebook = Notebook(self)
         running_tab = running(notebook)
         images_tab = images(notebook)
+        version_tab = version(notebook)
 
         notebook.add(running_tab, text=running.title)
         notebook.add(images_tab, text=images.title)
-
+        notebook.add(version_tab, text=version.title)
         notebook.pack(fill=tk.BOTH, expand=1)
